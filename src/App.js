@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const TodoList = () => {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
+
+  const addTask = () => {
+    if (newTask.trim() !== '') {
+      setTasks([...tasks, newTask]);
+      setNewTask('');
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1> Todo List</h1>
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+      <div>
+        <input
+          type="text"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <button onClick={addTask}>Add Task</button>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default TodoList;
+
+// import React from "react";
+//
+// export default function Search(){
+//     function publish(formData){
+//         const content = formData.get("content")
+//         const button = formData.get("button")
+//         alert(`'${content}' was '${button}'button`)
+//     }
+//
+//     function save(formData) {
+//         const content = formData.get('content')
+//         alert(`Your '${content}' has`)
+//     }
+//     return(
+//         <form action={publish}>
+//             <textarea name="content" rows={4} cols={40}/>
+//             <br/>
+//             <button type="submit" name="button" value='submit'>Publish</button>
+//             <button formAction={save}>Save</button>
+//         </form>
+//     )
+// }

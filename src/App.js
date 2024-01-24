@@ -1,57 +1,89 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import './index.css'
+const RegistrationForm = () => {
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
+    const [email, setEmail] = useState('');
+    const [number, setNumber] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [numberError, setNumberError] = useState('');
 
-const TodoList = () => {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
+    const handleFullNameChange = (e) => setName(e.target.value);
+    const handleAgeChange = (e) => setAge(e.target.value);
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        validateEmail(e.target.value);
+    };
+    const handlePhoneNumberChange = (e) => {
+        setNumber(e.target.value);
+        validatePhoneNumber(e.target.value);
+    };
 
-  const addTask = () => {
-    if (newTask.trim() !== '') {
-      setTasks([...tasks, newTask]);
-      setNewTask('');
-    }
-  };
+    const validateEmail = (input) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  return (
-    <div>
-      <h1> Todo List</h1>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </ul>
-      <div>
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-        />
-        <button onClick={addTask}>Add Task</button>
-      </div>
-    </div>
-  );
+        if (emailRegex.test(input)) {
+            setEmailError('');
+        } else {
+            setEmailError('Некорректный формат email!');
+        }
+    };
+
+    const validatePhoneNumber = (input) => {
+        const phoneRegex = /^\+996 [253791]\d{2} \d{2}-\d{2}-\d{2}$/;
+
+        if (phoneRegex.test(input)) {
+            setNumberError('');
+        } else {
+            setNumberError('Некорректный формат номера телефона!');
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!emailError && !numberError) {
+            alert('Вы успешно зарегистрировались.');
+        } else {
+            alert('Пожалуйста, исправьте ошибки в форме.');
+        }
+    };
+
+    return (
+        <div className="regist">
+            <form>
+                <label>
+                    <input type="text" placeholder={'Ф.И.О'} value={name} onChange={handleFullNameChange}/>
+                </label>
+
+                <label>
+                    <input type="number" placeholder={'Возраст'} value={age} onChange={handleAgeChange}/>
+                </label>
+
+                <label>
+                    <input type="email" placeholder={'example@gmail.com'} value={email} onChange={handleEmailChange}/>
+                    {emailError && <span className="error">{emailError}</span>}
+                </label>
+
+                <label>
+                    <input type="tel" placeholder={'+996 xxx xx-xx-xx'} value={number}
+                           onChange={handlePhoneNumberChange}/>
+                    {numberError && <span className="error">{numberError}</span>}
+                </label>
+            </form>
+            <div className="resalt">
+                <h2>Введенные значения:</h2>
+                <p>ФИО: {name}</p>
+                <p>Возраст: {age}</p>
+                <p>Email: {email}</p>
+                <p>Номер телефона: {number}</p>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+                <button type="submit">Регистрироваться</button>
+            </form>
+        </div>
+    );
 };
 
-export default TodoList;
-
-// import React from "react";
-//
-// export default function Search(){
-//     function publish(formData){
-//         const content = formData.get("content")
-//         const button = formData.get("button")
-//         alert(`'${content}' was '${button}'button`)
-//     }
-//
-//     function save(formData) {
-//         const content = formData.get('content')
-//         alert(`Your '${content}' has`)
-//     }
-//     return(
-//         <form action={publish}>
-//             <textarea name="content" rows={4} cols={40}/>
-//             <br/>
-//             <button type="submit" name="button" value='submit'>Publish</button>
-//             <button formAction={save}>Save</button>
-//         </form>
-//     )
-// }
+export default RegistrationForm;

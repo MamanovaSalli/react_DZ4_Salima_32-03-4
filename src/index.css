@@ -5,9 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fff url(photo/glare-coding-programming-languages-1.png) 560px 70px no-repeat;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.regist {
+  width: 400px;
+  height: 355px;
+  display: flow;
+  border: 2px solid navy;
+  align-items: center;
+  background: rgba(61, 94, 255, 0.84);
+  margin:100px 50px;
+  padding-top: 10px;
+  padding-left: 50px;
+  border-radius: 10px;
+  line-height: 25px;
+}
+
+.error {
+  font-size: 10px;
+  color: brown;
+}
+

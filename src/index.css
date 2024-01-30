@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #fff url(photo/glare-coding-programming-languages-1.png) 560px 70px no-repeat;
 }
 
 code {
@@ -13,22 +12,147 @@ code {
     monospace;
 }
 
-.regist {
-  width: 400px;
-  height: 355px;
-  display: flow;
-  border: 2px solid navy;
+.generalPage {
+  height: 120%;
+  background: url("./photo/reflection-of-the-lights-and-the-mountain-in-a-lake-captured-in-parco-ciani-lugano-switzerland.jpg");
+  background-size: cover;
+}
+
+.travelPage {
+  height: 100%;
+  background-size: cover;
+  background-color: #ffffff;
+}
+
+.musicPage {
+  height: 120%;
+  background: url("./photo/istockphoto.jpg");
+  background-size: cover;
+}
+
+.dropdown {
+  display: flex;
   align-items: center;
-  background: rgba(61, 94, 255, 0.84);
-  margin:100px 50px;
-  padding-top: 10px;
-  padding-left: 50px;
+  flex-direction: column;
+  background-color: #bc85cc;
+  height: 50px;
+}
+
+.dropdown button {
+  margin-top: 10px;
+  display: block;
+  padding: 10px;
+  width: 100px;
+  background-color: #fff;
+  border: 2px solid #a34bbe;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.dropdown button:hover {
+  background-color: #fff;
+  color: #3a3a3a;
+  border: 2px solid #a338be;
+}
+
+.dropdown button:active {
+  filter: brightness(0.8);
+}
+
+.dropdownLabel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+  font-weight: 700;
+}
+
+.dropdownLabel select{
+  width: 100px;
+  height: 30px;
+  text-align: center;
+}
+
+.urlWelcome {
+  background-color: #ffffff;
+  height: 75px;
+}
+
+.description {
+  background-color: rgba(229, 176, 255, 0.78);
+  padding: 10px;
+  backdrop-filter: blur(5px);
   border-radius: 10px;
-  line-height: 25px;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.description1 {
+  background-color: rgba(243, 196, 156, 0.89);
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 20px;
 }
 
-.error {
-  font-size: 10px;
-  color: brown;
+.description2 {
+  background-color: rgba(197, 197, 253, 0.82);
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 20px;
 }
 
+.description3 {
+  background-color: rgba(217, 208, 208, 0.82);
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.description4 {
+  background-color: rgba(163, 255, 240, 0.8);
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.description5 {
+  background-color: rgba(182, 239, 165, 0.68);
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.description6 {
+  background-color: rgba(246, 200, 227, 0.71);
+  padding: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  font-size: 20px;
+}
+.glob {
+  font-size: 25px;
+  margin-left: 550px;
+}
+
+.descriptions {
+  padding: 20px;
+
+}
+
+.background {
+
+  background-color: #ffffff;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
